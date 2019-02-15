@@ -5,7 +5,7 @@
               <h3>Chat Group</h3>
               <hr/>
           </div>         
-          <div class="card-body" id="" v-chat-scroll="{always: false, smooth: true}">              
+          <div class="card-body wrapper_div" id="messageBody">              
               <div class="messages" v-for="(msg, index) in messages" :key="index">
                   <p><span class="font-weight-bold">{{ msg.user }}: </span>{{ msg.message }}</p>
               </div>              
@@ -30,12 +30,12 @@
 
 <script>
 import io from 'socket.io-client';
-import VueChatScroll from 'vue-chat-scroll';
-// var messageBody = document.querySelector('#messageBody');
+//import VueChatScroll from 'vue-chat-scroll';
+var messageBody = document.querySelector('#messageBody');
 
 
 export default {
-    components: { VueChatScroll },
+    components: {  },
     data() {
         return {
             user: '',
@@ -61,7 +61,7 @@ export default {
             this.messages = [...this.messages, data];
             // you can also do this.messages.push(data)
             //console.log(this.messages);
-            // $('#messageBody').scrollTop($('#messageBody')[0].scrollHeight);
+            $('#messageBody').scrollTop($('#messageBody')[0].scrollHeight);
         });
     }
 
@@ -70,6 +70,17 @@ export default {
 <style>
     .wrapper_div {
         height: 100px;
-        overflow-y: auto;
+        overflow-y: scroll;
     } 
+    div::-webkit-scrollbar {
+        background: #fff !important;
+        width: 5px !important;
+      height: 25px !important; 
+        
+    }
+
+    div::-webkit-scrollbar-thumb {
+        background: #003e7d;
+        color: #003e7d;
+    }
 </style>

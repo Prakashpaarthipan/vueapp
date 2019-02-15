@@ -1,12 +1,14 @@
 
 const express = require('express');
 const cors = require("cors");
+
 const app = express();
 app.use(cors());
 cors({credentials: true, origin: true});
 const server = app.listen(3001, function() {
     console.log('server running on port 3001');
 });
+
 app.all("/",function(req,res){
     res.header ('Access-Control-Allow-Origin', '*');
     res.header ('Access-Control-Allow-Credentials', true);
