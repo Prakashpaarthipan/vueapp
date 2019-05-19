@@ -9,11 +9,15 @@ const server = app.listen(3001, function() {
     console.log('server running on port 3001');
 });
 
-app.all("/",function(req,res){
-    res.header ('Access-Control-Allow-Origin', '*');
-    res.header ('Access-Control-Allow-Credentials', true);
-    res.header ('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS');
-    res.header ('Access-Control-Allow-Headers', 'Content-Type');
+app.get("/chat",function(req,res){
+    // res.header ('Access-Control-Allow-Origin', '*');
+    // res.header ('Access-Control-Allow-Credentials', true);
+    // res.header ('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS');
+    // res.header ('Access-Control-Allow-Headers', 'Content-Type');
+});
+app.get("/login",function(req,res){
+    res.sendFile("../public/login.html");
+    console.log("err");
 });
 
 const io = require('socket.io')(server);

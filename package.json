@@ -3,12 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start":"npm run express | npm run serve",
-
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "express":"pm2 start server/app.js — watch — name server"
+    "lint": "vue-cli-service lint"    
   },
   "dependencies": {
     "pug-plain-loader": "^1.0.0",
